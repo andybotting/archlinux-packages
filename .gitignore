@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# Only include these files
+!Makefile
+!PKGBUILD
+!*.patch
+!.gitignore
+
+# Even ignore contents of subdirectories
+!*/
