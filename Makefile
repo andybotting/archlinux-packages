@@ -1,12 +1,12 @@
 SKIP = \
 
 PACKAGES = \
-    python-osc-lib \
     python-oslo-context \
     python-oslo-log \
     python-designateclient \
     python-yaql \
     python-muranoclient \
+    python-manilaclient \
 
 all: install
 
