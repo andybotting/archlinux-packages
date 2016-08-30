@@ -1,0 +1,63 @@
+From 9142eebe03c2a2d151bea276de05e79baaaed0d0 Mon Sep 17 00:00:00 2001
+From: Andy Botting <andy@andybotting.com>
+Date: Wed, 24 Aug 2016 09:55:03 +1000
+Subject: [PATCH] Decode PrettyTable output before printing for Python3
+
+In Python3 the pretty table output is a binary type (encoded)
+so print function output looks like
+
+b'+-----+-----+\n| foo | bar |\n+-----+-----++\n
+
+instead of
+
++-----+-----+
+| foo | bar |
++-----+-----+
+
+This commit adds a PY3 check and decodes the output before printing.
+
+This brings Murano client in line with other clients which have this
+fix already (e.g. Nova, Heat, Cinder, etc)
+
+Change-Id: I102c28828a3ec96266600dd82dcddd8bcf42318d
+---
+ muranoclient/common/utils.py | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/muranoclient/common/utils.py b/muranoclient/common/utils.py
+index 7972d8d..dd9c185 100644
+--- a/muranoclient/common/utils.py
++++ b/muranoclient/common/utils.py
+@@ -90,7 +90,13 @@ def print_list(objs, fields, field_labels, formatters=None, sortby=0):
+                 data = getattr(o, field, None) or ''
+                 row.append(data)
+         pt.add_row(row)
+-    print(encodeutils.safe_encode(pt.get_string()))
++
++    result = encodeutils.safe_encode(pt.get_string())
++
++    if six.PY3:
++        result = result.decode()
++
++    print(result)
+ 
+ 
+ def print_dict(d, formatters=None):
+@@ -104,7 +110,13 @@ def print_dict(d, formatters=None):
+             pt.add_row([field, formatters[field](d[field])])
+         else:
+             pt.add_row([field, d[field]])
+-    print(encodeutils.safe_encode(pt.get_string(sortby='Property')))
++
++    result = encodeutils.safe_encode(pt.get_string(sortby='Property'))
++
++    if six.PY3:
++        result = result.decode()
++
++    print(result)
+ 
+ 
+ def find_resource(manager, name_or_id, *args, **kwargs):
+-- 
+1.9.1
+
