@@ -1,14 +1,11 @@
-SKIP = \
-
 PACKAGES = \
-#    python-oslo-context \
-#    python-oslo-log \
-#    python-designateclient \
-#    python-yaql \
-#    python-muranoclient \
-#    python-manilaclient \
-
-PACKAGES = python-manilaclient
+    python-oslo-context \
+    python-oslo-log \
+    python-designateclient \
+    python-yaql \
+    python-reno \
+    python-muranoclient \
+    python-manilaclient
 
 all: install
 

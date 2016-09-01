@@ -1,24 +1,17 @@
 # Maintainer: Andy Botting <andy@andybotting.com>
 
 pkgname=('python-muranoclient' 'python2-muranoclient')
-pkgver='0.9.0'
-pkgrel='2'
+pkgver='0.11.0'
+pkgrel='1'
 pkgdesc='Python client library for Murano'
 arch=('any')
 url='http://docs.openstack.org/developer/python-muranoclient'
 license=('Apache')
 makedepends=('python-setuptools' 'python2-setuptools')
-source=("git+https://git.openstack.org/openstack/python-muranoclient#tag=$pkgver"
-        '9142eebe03c2a2d151bea276de05e79baaaed0d0.patch')
-sha256sums=('SKIP'
-            'f6771946d1b8717c0b1ad442b62dca2428cb8a8de07c1a9d3abc5727fb960161')
+source=("git+https://git.openstack.org/openstack/python-muranoclient#tag=$pkgver")
+sha256sums=('SKIP')
 
 prepare() {
-  cd "$srcdir"/python-muranoclient
-  # Python 3 fix https://review.openstack.org/#/c/359488
-  patch -Np1 -i '../9142eebe03c2a2d151bea276de05e79baaaed0d0.patch'
-  cd ..
-
   cp -a python-muranoclient{,-py2}
 }
 
