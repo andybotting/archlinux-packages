@@ -1,11 +1,11 @@
 # Maintainer: Andy Botting <andy@andybotting.com>
 
-pkgname=(python-yaql python2-yaql)
-pkgver=1.1.1
-pkgrel=1
-pkgdesc="OpenStack Command-line Client"
+pkgname=('python-yaql' 'python2-yaql')
+pkgver='1.1.1'
+pkgrel='1'
+pkgdesc='OpenStack Command-line Client'
 arch=('any')
-url="http://docs.openstack.org/developer/yaql"
+url='http://docs.openstack.org/developer/yaql'
 license=('Apache')
 source=("git+https://git.openstack.org/openstack/yaql#tag=$pkgver")
 md5sums=('SKIP')

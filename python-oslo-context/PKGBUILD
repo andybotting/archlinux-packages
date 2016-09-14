@@ -1,10 +1,9 @@
 # Maintainer: Andy Botting <andy@andybotting.com>
 
-pkgbase=python-oslo-context
-pkgname=(python-oslo-context python2-oslo-context)
-pkgver=2.7.0
+pkgname=('python-oslo-context' 'python2-oslo-context')
+pkgver='2.9.0'
 pkgrel=1
-pkgdesc="Oslo Log library"
+pkgdesc='Oslo Log library'
 arch=('any')
 url="https://pypi.python.org/pypi/oslo.context/$pkgver"
 license=('Apache')

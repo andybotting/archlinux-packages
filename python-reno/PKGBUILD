@@ -1,11 +1,11 @@
 # Maintainer: Andy Botting <andy@andybotting.com>
 
-pkgname=(python-reno python2-reno)
-pkgver=1.8.0
-pkgrel=1
-pkgdesc="OpenStack release notes manager"
+pkgname=('python-reno' 'python2-reno')
+pkgver='1.8.0'
+pkgrel='1'
+pkgdesc='OpenStack release notes manager'
 arch=('any')
-url="http://docs.openstack.org/developer/reno"
+url='http://docs.openstack.org/developer/reno'
 license=('Apache')
 source=("git+https://git.openstack.org/openstack/reno#tag=$pkgver")
 md5sums=('SKIP')
