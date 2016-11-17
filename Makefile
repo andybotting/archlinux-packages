@@ -1,3 +1,11 @@
+DEPS = \
+    python-heatclient \
+    python2-heatclient \
+    python-swiftclient \
+    python2-swiftclient \
+    python-neutronclient \
+    python2-neutronclient
+
 PACKAGES = \
     python-oslo-context \
     python-oslo-log \
@@ -5,9 +13,18 @@ PACKAGES = \
     python-yaql \
     python-reno \
     python-muranoclient \
-    python-manilaclient
+    python-manilaclient \
+    python-mistralclient \
+    python-troveclient \
+    python-ironicclient \
+    python-magnumclient \
+    python-munch \
+    python-shade
 
-all: install
+all: deps install
+
+deps:
+	pacaur --noedit --noconfirm --needed -Sa $(DEPS)
 
 install:
 	for package in $(PACKAGES); do \
