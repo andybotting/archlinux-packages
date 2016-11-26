@@ -24,12 +24,13 @@ PACKAGES = \
 all: deps install
 
 deps:
+	pacaur -Sy
 	pacaur --noedit --noconfirm --needed -Sa $(DEPS)
 
 install:
 	for package in $(PACKAGES); do \
 		(cd $$package; \
-        makepkg --noconfirm -iscf) \
+		makepkg --noconfirm -iscf || exit 1) \
 	done
 
 clean:

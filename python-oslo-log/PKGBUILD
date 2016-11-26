@@ -54,6 +54,7 @@ package_python2-oslo-log() {
 
   cd "$srcdir"/oslo.log-py2
   python2 setup.py install --root="$pkgdir/" --optimize=1
+  mv "${pkgdir}"/usr/bin/convert-json{,2}
 }
 
 # vim:set ts=2 sw=2 et:
