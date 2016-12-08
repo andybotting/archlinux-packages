@@ -2,6 +2,7 @@
 *
 
 # Only include these files
+!update.sh
 !Makefile
 !PKGBUILD
 !*.patch
