@@ -7,7 +7,7 @@ for PKG in $(find . -name PKGBUILD); do
 
     # Fetch latest tag
     url=$(echo $source | sed 's/git+\(.*\)#tag.*/\1/')
-    newver=$(git ls-remote --tags $url | grep -v '{}' | awk -F/ '{print $NF}' | grep -E '^[[:digit:]]\.' | sort -V | tail -n1)
+    newver=$(git ls-remote --tags $url | grep -v '{}' | awk -F/ '{print $NF}' | grep -E '^(v?)[[:digit:]]\.' | sort -V | tail -n1 | sed 's/^v//g')
     echo $newver
 
     if [[ $pkgver != $newver ]]; then

@@ -8,5 +8,8 @@
 !*.patch
 !.gitignore
 
-# Even ignore contents of subdirectories
+# Allow package directories
 !*/
+
+# Disallow package sub directories
+*/*/

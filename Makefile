@@ -7,6 +7,7 @@ DEPS = \
     python2-neutronclient
 
 PACKAGES = \
+    python-tablib \
     python-oslo-context \
     python-oslo-log \
     python-designateclient \
