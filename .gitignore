@@ -2,6 +2,7 @@
 *
 
 # Only include these files
+!README.md
 !update.sh
 !Makefile
 !PKGBUILD
