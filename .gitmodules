@@ -1,0 +1,39 @@
+[submodule "python-yaql"]
+	path = python-yaql
+	url = ssh://aur@aur.archlinux.org/python-yaql.git
+[submodule "python-ironicclient"]
+	path = python-ironicclient
+	url = ssh://aur@aur.archlinux.org/python-ironicclient.git
+[submodule "python-manilaclient"]
+	path = python-manilaclient
+	url = ssh://aur@aur.archlinux.org/python-manilaclient.git
+[submodule "python-munch"]
+	path = python-munch
+	url = ssh://aur@aur.archlinux.org/python-munch.git
+[submodule "python-oslo-context"]
+	path = python-oslo-context
+	url = ssh://aur@aur.archlinux.org/python-oslo-context.git
+[submodule "python-reno"]
+	path = python-reno
+	url = ssh://aur@aur.archlinux.org/python-reno.git
+[submodule "python-designateclient"]
+	path = python-designateclient
+	url = ssh://aur@aur.archlinux.org/python-designateclient.git
+[submodule "python-magnumclient"]
+	path = python-magnumclient
+	url = ssh://aur@aur.archlinux.org/python-magnumclient.git
+[submodule "python-mistralclient"]
+	path = python-mistralclient
+	url = ssh://aur@aur.archlinux.org/python-mistralclient.git
+[submodule "python-muranoclient"]
+	path = python-muranoclient
+	url = ssh://aur@aur.archlinux.org/python-muranoclient.git
+[submodule "python-oslo-log"]
+	path = python-oslo-log
+	url = ssh://aur@aur.archlinux.org/python-oslo-log.git
+[submodule "python-shade"]
+	path = python-shade
+	url = ssh://aur@aur.archlinux.org/python-shade.git
+[submodule "python-troveclient"]
+	path = python-troveclient
+	url = ssh://aur@aur.archlinux.org/python-troveclient.git
