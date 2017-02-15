@@ -13,7 +13,7 @@ for PKG in $(find . -name PKGBUILD); do
     if [[ $pkgver != $newver ]]; then
         echo "Updating $pkgname..."
         cd $(dirname $PKG)
-        sed -i "s/pkgver=.*/pkgver='$newver'/g" PKGBUILD
+        sed -i -e "s/pkgver=.*/pkgver='$newver'/g" -e "s/pkgrel=.*/pkgrel='1'/g" PKGBUILD
         makepkg --printsrcinfo > .SRCINFO
         git checkout master
         git add PKGBUILD .SRCINFO

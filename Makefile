@@ -1,4 +1,8 @@
 DEPS = \
+    python-fasteners \
+    python2-fasteners \
+    python-semantic-version \
+    python2-semantic-version \
     python-heatclient \
     python2-heatclient \
     python-swiftclient \
@@ -7,34 +11,44 @@ DEPS = \
     python2-neutronclient
 
 PACKAGES = \
-    python-tablib \
+    python-os-testr \
+    python-oslo-concurrency \
+    python-tempest \
     python-oslo-context \
     python-oslo-log \
     python-designateclient \
     python-yaql \
     python-reno \
+    python-muranopkgcheck \
     python-muranoclient \
     python-manilaclient \
     python-mistralclient \
     python-troveclient \
     python-ironicclient \
     python-magnumclient \
+    python-saharaclient \
     python-munch \
     python-shade
 
-all: deps install
+all: deps build install
 
 deps:
 	pacaur -Sy
 	pacaur --noedit --noconfirm --needed -Sa $(DEPS)
 
+build:
+	for package in $(PACKAGES); do \
+		(cd $$package; \
+		makepkg --noconfirm -sf || exit 1) \
+	done
+
 install:
 	for package in $(PACKAGES); do \
 		(cd $$package; \
-		makepkg --noconfirm -iscf || exit 1) \
+		makepkg --noconfirm -isc || exit 1) \
 	done
 
 clean:
 	for package in $(PACKAGES); do \
-		(cd $$package && rm -fr *.pkg.tar.xz *.tar.gz *.tar.bz2 *.tgz *.part .MTREE .PKGINFO */) \
+		(cd $$package && rm -fr *.pkg.tar.xz *.tar.gz *.tar.bz2 *.tgz *.part .MTREE .PKGINFO .testrespository */) \
 	done
