@@ -1,3 +1,6 @@
+KEYS = \
+    9A2D24A504D1E9F8 # python-dulwich
+
 DEPS = \
     python-fasteners \
     python2-fasteners \
@@ -8,10 +11,11 @@ DEPS = \
     python-swiftclient \
     python2-swiftclient \
     python-neutronclient \
-    python2-neutronclient
+    python2-neutronclient \
+    python-os-testr \
+    python2-os-testr \
 
 PACKAGES = \
-    python-os-testr \
     python-oslo-concurrency \
     python-tempest \
     python-oslo-context \
@@ -30,7 +34,14 @@ PACKAGES = \
     python-munch \
     python-shade
 
-all: deps build install
+all: keys deps build install
+
+keys:
+	for key in $(KEYS); do \
+		if ! gpg --list-keys $$key >/dev/null 2>/dev/null; then \
+			gpg --recv-key $$key; \
+		fi \
+	done
 
 deps:
 	pacaur -Sy
