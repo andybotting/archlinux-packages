@@ -31,9 +31,6 @@
 [submodule "python-oslo-log"]
 	path = python-oslo-log
 	url = ssh://aur@aur.archlinux.org/python-oslo-log.git
-#[submodule "python-os-testr"]
-#	path = python-os-testr
-#	url = ssh://aur@aur.archlinux.org/python-os-testr.git
 [submodule "python-reno"]
 	path = python-reno
 	url = ssh://aur@aur.archlinux.org/python-reno.git
