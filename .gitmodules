@@ -49,6 +49,3 @@
 [submodule "python-yaql"]
 	path = python-yaql
 	url = ssh://aur@aur.archlinux.org/python-yaql.git
-[submodule "python-os-testr"]
-	path = python-os-testr
-	url = ssh://aur@aur.archlinux.org/python-os-testr.git
