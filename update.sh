@@ -2,7 +2,7 @@
 
 
 if [ -z $1 ]; then
-    PKGBUILDS=$(find . -name PKGBUILD)
+    PKGBUILDS=$(find -maxdepth 2 -type f -name PKGBUILD)
 else
     PKGBUILDS=$1/PKGBUILD
 fi

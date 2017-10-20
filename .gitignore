@@ -1,5 +1,6 @@
 # Ignore everything
 *
+.deps
 
 # Only include these files
 !README.md
