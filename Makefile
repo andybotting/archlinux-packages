@@ -17,17 +17,14 @@ DEPS = \
     python-os-testr \
     python2-os-testr \
 
-    # aur version is outdated
-    #python-heatclient \
-    #python2-heatclient \
-
 PACKAGES = \
-    python-heatclient \
     python-oslo-concurrency \
     python-tempest \
     python-oslo-context \
     python-oslo-log \
+    python-heatclient \
     python-designateclient \
+    python-ceilometerclient \
     python-yaql \
     python-reno \
     python-muranopkgcheck \

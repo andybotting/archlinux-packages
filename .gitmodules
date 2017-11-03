@@ -49,3 +49,9 @@
 [submodule "python-yaql"]
 	path = python-yaql
 	url = ssh://aur@aur.archlinux.org/python-yaql.git
+[submodule "python-heatclient"]
+	path = python-heatclient
+	url = ssh://aur@aur.archlinux.org/python-heatclient.git
+[submodule "python-ceilometerclient"]
+	path = python-ceilometerclient
+	url = ssh://aur@aur.archlinux.org/python-ceilometerclient.git
