@@ -6,6 +6,7 @@ CHROOTDEPS = \
     python-semantic-version \
     python2-semantic-version \
     python-neutronclient \
+    python-stestr \
     python-os-testr
 
 DEPS = \
@@ -41,10 +42,10 @@ PACKAGES = \
 all: keys deps build install
 
 update:
-	git submodule foreach git pull origin master
+	git submodule foreach 'git pull origin master; git checkout master'
 
 reset:
-	git submodule foreach git reset --hard origin/master
+	git submodule foreach 'git reset --hard origin/master; git checkout master'
 
 keys:
 	for key in $(KEYS); do \
