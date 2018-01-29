@@ -23,8 +23,13 @@ for PKG in $PKGBUILDS; do
         sed -i -e "s/pkgver=.*/pkgver='$newver'/g" -e "s/pkgrel=.*/pkgrel='1'/g" PKGBUILD
         makepkg --printsrcinfo > .SRCINFO
         git checkout master
-        #git add PKGBUILD .SRCINFO
-        #git commit -m "Update to v${newver}"
+        sudo ccm64 s
+        if [ $? == 0 ]; then
+            git add PKGBUILD .SRCINFO
+            git commit -m "Update to v${newver}"
+        else
+            echo "FAILED TO BUILD PACKAGE"
+        fi
         cd ..
     fi
 done

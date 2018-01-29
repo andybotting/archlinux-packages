@@ -19,9 +19,7 @@ DEPS = \
     python2-os-testr \
 
 PACKAGES = \
-    python-oslo-concurrency \
     python-tempest \
-    python-oslo-context \
     python-oslo-log \
     python-heatclient \
     python-designateclient \
@@ -46,6 +44,9 @@ update:
 
 reset:
 	git submodule foreach 'git reset --hard origin/master; git checkout master'
+
+push:
+	git submodule foreach 'git push'
 
 keys:
 	for key in $(KEYS); do \
