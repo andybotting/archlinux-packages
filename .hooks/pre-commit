@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+if git diff --cached --stat --name-only | grep PKGBUILD 2>&1; then
+    echo -e "\e[34;1m  ->\e[39;1m Generating .SRCINFO...\e[0m"
+    makepkg --printsrcinfo > .SRCINFO
+
+    # Add the .SRCINFO file if it is not tracked already
+    if ! git ls-files "${path}/.SRCINFO" --error-unmatch &> /dev/null; then
+      git add .SRCINFO
+      echo -e "\e[34;1m  ->\e[39;1m Adding .SRCINFO to git tree...\033[0m"
+    fi
+
+    git add -u .SRCINFO 1>/dev/null
+fi

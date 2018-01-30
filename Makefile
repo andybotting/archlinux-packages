@@ -39,6 +39,9 @@ PACKAGES = \
 
 all: keys deps build install
 
+hooks:
+	git submodule foreach 'cp ../.hooks/* `git rev-parse --git-dir`/hooks/'
+
 update:
 	git submodule foreach 'git pull origin master; git checkout master'
 
@@ -69,14 +72,14 @@ chrootdeps:
 		(curl -s -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/$$dep.tar.gz && \
 		tar xf $$dep.tar.gz && \
 		cd $$dep && \
-		sudo ccm64 s && \
+		sudo ccm64 S && \
         cd .. && rm -fr $$dep*) \
 	done
 
 chrootbuild:
 	for package in $(PACKAGES); do \
 		(cd $$package; \
-		sudo ccm64 s || exit 1) \
+		sudo ccm64 S || exit 1) \
 	done
 
 chrootclean:
