@@ -55,3 +55,9 @@
 [submodule "python-ceilometerclient"]
 	path = python-ceilometerclient
 	url = ssh://aur@aur.archlinux.org/python-ceilometerclient.git
+[submodule "python-neutronclient"]
+	path = python-neutronclient
+	url = ssh://aur@aur.archlinux.org/python-neutronclient.git
+[submodule "python-osprofiler"]
+	path = python-osprofiler
+	url = ssh://aur@aur.archlinux.org/python-osprofiler.git

@@ -13,14 +13,14 @@ DEPS = \
     python-dulwich \
     python-semantic-version \
     python2-semantic-version \
-    python-neutronclient \
-    python2-neutronclient \
     python-os-testr \
     python2-os-testr \
 
 PACKAGES = \
     python-tempest \
     python-oslo-log \
+    python-osprofiler \
+    python-neutronclient \
     python-heatclient \
     python-designateclient \
     python-ceilometerclient \
