@@ -61,3 +61,6 @@
 [submodule "python-osprofiler"]
 	path = python-osprofiler
 	url = ssh://aur@aur.archlinux.org/python-osprofiler.git
+[submodule "python-octaviaclient"]
+	path = python-octaviaclient
+	url = ssh://aur@aur.archlinux.org/python-octaviaclient
