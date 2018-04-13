@@ -2,15 +2,16 @@ KEYS = \
     9A2D24A504D1E9F8 \
 
 CHROOTDEPS = \
+    python-dulwich \
     python2-dulwich \
     python-semantic-version \
     python2-semantic-version \
-    python-neutronclient \
-    python-stestr \
-    python-os-testr
+    python-os-testr \
+    python2-os-testr
 
 DEPS = \
     python-dulwich \
+    python2-dulwich \
     python-semantic-version \
     python2-semantic-version \
     python-os-testr \
@@ -34,7 +35,6 @@ PACKAGES = \
     python-ironicclient \
     python-magnumclient \
     python-saharaclient \
-    python-munch \
     python-shade
 
 all: keys deps build install
@@ -78,8 +78,9 @@ chrootdeps:
 
 chrootbuild:
 	for package in $(PACKAGES); do \
-		(cd $$package; \
-		sudo ccm64 S || exit 1) \
+		cd $$package; \
+		sudo ccm64 S || exit $$?; \
+		cd ..; \
 	done
 
 chrootclean:
@@ -92,14 +93,16 @@ deps:
 
 build:
 	for package in $(PACKAGES); do \
-		(cd $$package; \
-		makepkg --noconfirm -sf || exit 1) \
+		cd $$package; \
+		makepkg --noconfirm -sf || exit $$?; \
+		cd ..; \
 	done
 
 install:
-	for package in $(PACKAGES); do \
-		(cd $$package; \
-		makepkg --noconfirm -isc || exit 1) \
+	for package in $(PACKAGES); do
+		cd $$package; \
+		makepkg --noconfirm -isc || exit $$?; \
+		cd ..; \
 	done
 
 clean:

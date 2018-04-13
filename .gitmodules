@@ -13,9 +13,6 @@
 [submodule "python-mistralclient"]
 	path = python-mistralclient
 	url = ssh://aur@aur.archlinux.org/python-mistralclient.git
-[submodule "python-munch"]
-	path = python-munch
-	url = ssh://aur@aur.archlinux.org/python-munch.git
 [submodule "python-muranoclient"]
 	path = python-muranoclient
 	url = ssh://aur@aur.archlinux.org/python-muranoclient.git
