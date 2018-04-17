@@ -35,13 +35,17 @@ PACKAGES = \
     python-ironicclient \
     python-magnumclient \
     python-saharaclient \
+    python-barbicanclient \
     python-shade
 
 all: keys deps build install
 
 hooks:
-	git submodule foreach 'cp ../.hooks/* `git rev-parse --git-dir`/hooks/'
-
+	for package in $(PACKAGES); do \
+		cd $$package; \
+        cp -v ../.hooks/* $$(git rev-parse --git-dir)/hooks/ ;\
+		cd ..; \
+	done
 update:
 	git submodule foreach 'git pull origin master; git checkout master'
 

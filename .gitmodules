@@ -61,3 +61,6 @@
 [submodule "python-octaviaclient"]
 	path = python-octaviaclient
 	url = ssh://aur@aur.archlinux.org/python-octaviaclient
+[submodule "python-barbicanclient"]
+	path = python-barbicanclient
+	url = ssh://aur@aur.archlinux.org/python-barbicanclient
