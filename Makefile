@@ -36,7 +36,9 @@ PACKAGES = \
     python-magnumclient \
     python-saharaclient \
     python-barbicanclient \
-    python-shade
+    python-shade \
+    python-futurist \
+    python-gnocchiclient
 
 all: keys deps build install
 
