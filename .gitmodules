@@ -25,9 +25,6 @@
 [submodule "python-oslo-context"]
 	path = python-oslo-context
 	url = ssh://aur@aur.archlinux.org/python-oslo-context.git
-[submodule "python-oslo-log"]
-	path = python-oslo-log
-	url = ssh://aur@aur.archlinux.org/python-oslo-log.git
 [submodule "python-reno"]
 	path = python-reno
 	url = ssh://aur@aur.archlinux.org/python-reno.git
@@ -64,3 +61,6 @@
 [submodule "python-barbicanclient"]
 	path = python-barbicanclient
 	url = ssh://aur@aur.archlinux.org/python-barbicanclient
+[submodule "python-gnocchiclient"]
+	path = python-gnocchiclient
+	url = ssh://aur@aur.archlinux.org/python-gnocchiclient

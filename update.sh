@@ -15,6 +15,7 @@ for PKG in $PKGBUILDS; do
     # Fetch latest tag
     url=$(echo $source | sed 's/git+\(.*\)#tag.*/\1/')
     newver=$(git ls-remote --tags $url | grep -v '{}' | awk -F/ '{print $NF}' | grep -E '^(v?)[[:digit:]]{0,3}\.' | sed 's/^v//g' | sort -V | tail -n1)
+    [ $? -ne 0 ] && break
     echo $newver
 
     if [[ $pkgver != $newver ]]; then

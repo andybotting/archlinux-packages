@@ -1,7 +1,7 @@
 KEYS = \
     9A2D24A504D1E9F8 \
 
-CHROOTDEPS = \
+DEPS = \
     python-dulwich \
     python2-dulwich \
     python-semantic-version \
@@ -9,24 +9,15 @@ CHROOTDEPS = \
     python-os-testr \
     python2-os-testr
 
-DEPS = \
-    python-dulwich \
-    python2-dulwich \
-    python-semantic-version \
-    python2-semantic-version \
-    python-os-testr \
-    python2-os-testr \
-
 PACKAGES = \
     python-tempest \
-    python-oslo-log \
+    python-reno \
     python-osprofiler \
     python-neutronclient \
     python-heatclient \
     python-designateclient \
     python-ceilometerclient \
     python-yaql \
-    python-reno \
     python-muranopkgcheck \
     python-muranoclient \
     python-manilaclient \
@@ -74,7 +65,7 @@ chrootkeys:
 chrootdeps:
 	mkdir -p .deps; \
 	cd .deps; \
-	for dep in $(CHROOTDEPS); do \
+	for dep in $(DEPS); do \
 		(curl -s -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/$$dep.tar.gz && \
 		tar xf $$dep.tar.gz && \
 		cd $$dep && \
