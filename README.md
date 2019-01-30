@@ -19,6 +19,13 @@ Testing
  * `make chrootdeps` to install all required deps into the chroot
  * `make chrootbuild` to build all packages into the chroot
 
+Repository maintenance
+----------------------
+At any time if you need to clean and start a fresh chroot
+ * `sudo ccm64 n` (nuke)
+ * `sudo ccm64 c` (create)
+ * `make chrootdeps` and continue
+
 Adding a new package
 --------------------
 Clone an empty repository from AUR

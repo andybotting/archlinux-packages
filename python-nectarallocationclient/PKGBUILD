@@ -1,0 +1,57 @@
+# Maintainer: Andy Botting <andy@andybotting.com>
+
+pkgname=('python-nectarallocationclient' 'python2-nectarallocationclient')
+pkgver='0.5.0'
+pkgrel='1'
+pkgdesc='A client for the Nectar Allocation API'
+arch=('any')
+url='https://github.com/NeCTAR-RC/python-nectarallocationclient'
+license=('Apache')
+makedepends=('python-pip' 'python2-pip'
+             'python-oslo-utils' 'python2-oslo-utils'
+             'python-requests' 'python2-requests'
+             'python-keystoneauth1' 'python2-keystoneauth1'
+             'python-osc-lib' 'python2-osc-lib')
+checkdepends=('python-testrepository' 'python2-testrepository'
+              'python-mock' 'python2-mock'
+              'python-requests-mock' 'python2-requests-mock'
+              'python-testtools' 'python2-testtools')
+source=("https://github.com/NeCTAR-RC/${pkgname}/archive/${pkgver}.tar.gz")
+sha512sums=('72bd564a44440f5c04547de85a290f8dea5ef83365284671881db851c4ccc56510eb4eae9e2ea7d4201f11d7748fbfac43051f2e6f7c38519a9a4ffb8c752478')
+
+prepare() {
+  cp -a "${srcdir}/${pkgname}-${pkgver}"{,-py2}
+  export PBR_VERSION=$pkgver
+}
+
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  python setup.py build
+
+  cd "${srcdir}/${pkgname}-${pkgver}-py2"
+  python2 setup.py build
+}
+
+check() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  python setup.py testr
+
+  cd "${srcdir}/${pkgname}-${pkgver}-py2"
+  PYTHON=python2 python2 setup.py testr
+}
+
+package_python-nectarallocationclient() {
+  depends=('python-oslo-utils' 'python-requests'
+           'python-keystoneauth1' 'python-osc-lib')
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  python setup.py install --root="${pkgdir}" --optimize=1
+}
+
+package_python2-nectarallocationclient() {
+  depends=('python2-oslo-utils' 'python2-requests'
+           'python2-keystoneauth1' 'python2-osc-lib')
+  cd "${srcdir}/python-nectarallocationclient-${pkgver}-py2"
+  python2 setup.py install --root="${pkgdir}" --optimize=1
+}
+
+# vim:set ts=2 sw=2 et:

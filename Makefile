@@ -2,12 +2,7 @@ KEYS = \
     9A2D24A504D1E9F8 \
 
 DEPS = \
-    python-dulwich \
-    python2-dulwich \
-    python-semantic-version \
-    python2-semantic-version \
-    python-os-testr \
-    python2-os-testr
+    python-os-testr
 
 PACKAGES = \
     python-tempest \
@@ -26,6 +21,7 @@ PACKAGES = \
     python-ironicclient \
     python-magnumclient \
     python-saharaclient \
+    python-octaviaclient \
     python-barbicanclient \
     python-shade \
     python-futurist \
@@ -104,5 +100,5 @@ install:
 
 clean:
 	for package in $(PACKAGES); do \
-		(cd $$package && rm -fr *.pkg.tar.xz *.log *.tar.gz *.tar.bz2 *.tgz *.part .MTREE .PKGINFO .testrespository */) \
+		(cd $$package && rm -fr *.pkg.tar.xz *.log *.log.? *.tar.gz *.tar.bz2 *.tgz *.part .MTREE .PKGINFO .testrespository */) \
 	done

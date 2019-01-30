@@ -64,3 +64,6 @@
 [submodule "python-gnocchiclient"]
 	path = python-gnocchiclient
 	url = ssh://aur@aur.archlinux.org/python-gnocchiclient
+[submodule "python-futurist"]
+	path = python-futurist
+	url = ssh://aur@aur.archlinux.org/python-futurist
