@@ -72,7 +72,7 @@ chrootdeps:
 chrootbuild:
 	for package in $(PACKAGES); do \
 		cd $$package; \
-		sudo ccm64 S || exit $$?; \
+		sudo ccm64 s || exit $$?; \
 		cd ..; \
 	done
 
@@ -92,7 +92,7 @@ build:
 	done
 
 install:
-	for package in $(PACKAGES); do
+	for package in $(PACKAGES); do \
 		cd $$package; \
 		makepkg --noconfirm -isc || exit $$?; \
 		cd ..; \
