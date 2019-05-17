@@ -25,7 +25,8 @@ PACKAGES = \
     python-barbicanclient \
     python-shade \
     python-futurist \
-    python-gnocchiclient
+    python-gnocchiclient \
+    python-osc-placement
 
 all: keys deps build install
 
